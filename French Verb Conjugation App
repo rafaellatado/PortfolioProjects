@@ -47,7 +47,7 @@ def main():
     checar_respostas = []
     checar_se_gabaritou = []
 
-    # 'Respostas' do programa. O gabarito
+    # 'Respostas' do programa. Os gabaritos:
     Respostas_Corretas = []
     Correção = []
     pronomes_lista = ['Je', 'Tu', 'Il/Elle/On', 'Nous', 'Vous', 'Ils/Elles']
@@ -65,11 +65,6 @@ def main():
 
 
     print('\nCONJUGAISON DES VERBES EN FRAÇAIS!\n')
-
-    #quer_aprender = print('\nGostaria de saber mais sobre os tipos de verbo em francês?\nSe sim, tecle 1, se não, tecle 2 e vamos começar a conjugar: ')
-    #if quer_aprender == 1:
-
-    #elif quer_aprender == 2:
 
 
     Tipo_De_Verbo_Escolhido = []
@@ -121,9 +116,9 @@ def main():
 
     tempos_verbais_backend = ['PRESENT', 'PASSE COMPOSE', 'IMPARFAIT', 'PLUS-QUE-PARFAIT', 'FUTUR SIMPLE']
     
-    tempos_verbais = ['Présent', 'Passé composé', 'Imparfait', 'Plus-Que-Parfait', 'Futur simple']
+    tempos_verbais_input = ['Présent', 'Passé composé', 'Imparfait', 'Plus-Que-Parfait', 'Futur simple']
 
-    print(f'\n\nTempos verbais disponíveis:\n\n{tempos_verbais}')
+    print(f'\n\nTempos verbais disponíveis:\n\n{tempos_verbais_input}')
 
     quantos_tempos = int(input(f'\nIndique a quantidade de tempos verbais: '))
 
@@ -168,7 +163,7 @@ def main():
     for m in checar_verbos:
         for k in checar_tempos:
             for s in pronomes_lista:
-                Respostas_Corretas.append(Gabarito[Tipo_De_Verbo_Escolhido[0]][checar_verbos[checar_verbos.index(m)]][checar_tempos[checar_tempos.index(k)]][pronomes_lista[pronomes_lista.index(s)]])
+                Respostas_Corretas.append(Gabarito[Tipo_De_Verbo_Escolhido[0]][m][k][s])
                 
 
     # For loop para printar 'certo' ou 'errado' para cada resposta do usuário
