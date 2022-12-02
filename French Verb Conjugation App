@@ -1,9 +1,4 @@
 def main():
-    '''
-    Fazer lista dos verbos maiis comuns da língua francesa.
-    Verbos do grupo I, II e III.
-    Pedir pro usuário selecionar o grupo do verbo.
-    '''
 
     from unidecode import unidecode
 
