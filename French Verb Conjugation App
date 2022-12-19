@@ -1,44 +1,15 @@
 def main():
 
+
+    import ast
     from unidecode import unidecode
 
-    Gabarito = {'IRREGULIERS': {'ETRE': {'PRESENT': {'Je': 'suis', 'Tu': 'es', 'Il/Elle/On': 'est', 'Nous': 'sommes', 'Vous': 'êtes', 'Ils/Elles': 'sont'},
-                                         'PASSE COMPOSE': {'Je': "'ai été", 'Tu': 'as été', 'Il/Elle/On': 'a été', 'Nous': 'avons été', 'Vous': 'avez été', 'Ils/Elles': 'ont été'},
-                                         'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
-                                         'FUTURE SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}},
-                                'AVOIR':
-                                        {'PRESENT': {'Je': "'ai", 'Tu': 'as', 'Il/Elle/On': 'a', 'Nous': 'avons', 'Vous': 'avez', 'Ils/Elles': 'ont'},
-                                         'PASSE COMPOSE': {'Je': "'ai eu", 'Tu': 'as eu', 'Il/Elle/On': 'a eu', 'Nous': 'avons eu', 'Vous': 'avez eu', 'Ils/Elles': 'ont eu'},
-                                         'IMPARFAIT': {'Je': 'avais', 'Tu': 'avais', 'Il/Elle/On': 'avait', 'Nous': 'avions', 'Vous': 'aviez', 'Ils/Elles': 'avaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais eu", 'Tu': 'avais eu', 'Il/Elle/On': 'avait eu', 'Nous': 'avions eu', 'Vous': 'aviez eu', 'Ils/Elles': 'avaient eu'},
-                                         'FUTURE SIMPLE': {'Je': "'aurai", 'Tu': 'auras', 'Il/Elle/On': 'aura', 'Nous': 'aurons', 'Vous': 'aurez', 'Ils/Elles': 'auront'}}},
-                'REGULIERS_1': {'AIMER':
-                                        {'PRESENT': {'Je': 'suis', 'Tu': 'es', 'Il/Elle/On': 'est', 'Nous': 'sommes', 'Vous': 'êtes', 'Ils/Elles': 'sont'},
-                                         'PASSE COMPOSE': {'Je': "'ai été", 'Tu': 'as été', 'Il/Elle/On': 'a été', 'Nous': 'avons été', 'Vous': 'avez été', 'Ils/Elles': 'ont été'},
-                                         'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
-                                         'FUTURE SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}},
-                                'DEMANDER':
-                                        {'PRESENT': {'Je': 'suis', 'Tu': 'es', 'Il/Elle/On': 'est', 'Nous': 'sommes', 'Vous': 'êtes', 'Ils/Elles': 'sont'},
-                                         'PASSE COMPOSE': {'Je': "'ai été", 'Tu': 'as été', 'Il/Elle/On': 'a été', 'Nous': 'avons été', 'Vous': 'avez été', 'Ils/Elles': 'ont été'},
-                                         'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
-                                         'FUTURE SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}}},
-                'REGULIERS_2': {'FINIR':
-                                        {'PRESENT': {'Je': 'suis', 'Tu': 'es', 'Il/Elle/On': 'est', 'Nous': 'sommes', 'Vous': 'êtes', 'Ils/Elles': 'sont'},
-                                         'PASSE COMPOSE': {'Je': "'ai été", 'Tu': 'as été', 'Il/Elle/On': 'a été', 'Nous': 'avons été', 'Vous': 'avez été', 'Ils/Elles': 'ont été'},
-                                         'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
-                                         'FUTURE SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}},
-                                'AGIR':
-                                        {'PRESENT': {'Je': 'suis', 'Tu': 'es', 'Il/Elle/On': 'est', 'Nous': 'sommes', 'Vous': 'êtes', 'Ils/Elles': 'sont'},
-                                         'PASSE COMPOSE': {'Je': "'ai été", 'Tu': 'as été', 'Il/Elle/On': 'a été', 'Nous': 'avons été', 'Vous': 'avez été', 'Ils/Elles': 'ont été'},
-                                         'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
-                                         'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
-                                         'FUTURE SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}}}}
+   
+    with open('Gabarito_txt_Francês.txt', 'r') as r:
+        g = r.read()
 
-
+    # Converting string inside .txt file to dict
+    Gabarito = ast.literal_eval(g)
 
 
     # Inputs do usuário:
@@ -55,170 +26,213 @@ def main():
 
 
 
-    verbos_regulares_1 = ['Aimer', 'Demander', 'Intéresser', 'Inquiéter', 'Parler', 'Doner']
+    verbos_irregulares = list(Gabarito['IRREGULIERS'].keys())
+                          
+    verbos_regulares_1 = list(Gabarito['REGULIERS_1'].keys())
 
-    verbos_regulares_2 =['Finir', 'Agir', 'Investir', 'Obéir', 'Grandir', 'Réfléchir', 'Vieillir']
-
-    verbos_irregulares = ['Être', 'Avoir', 'Pouvoir', 'Vouloir', 'Faire', 'Aller', 'Venir',
-                          'Devenir', 'Prendre', 'Comprendre']
-
-
-
-    print('\nCONJUGAISON DES VERBES EN FRAÇAIS!\n')
-
-
-    Tipo_De_Verbo_Escolhido = []
-
-
-    verbo_reg_ou_irreg = int(input('\nTecle 1 para conjugar verbos regulares ou 2 para verbos irregulares: '))
-
-    if verbo_reg_ou_irreg == 1:
-        regulares = int(input('\nTecle 1 para verbos do grupo I (-ER) ou II (-IR) para verbos do segundo grupo: '))
-        if regulares == 1:
-            Tipo_De_Verbo_Escolhido += ['REGULIERS_1']
-            print(f'\n\nVerbos disponíveis - Regulares do 1° grupo / De terminação ER:\n\n{verbos_regulares_1}')
-
-        elif regulares == 2:
-            Tipo_De_Verbo_Escolhido += ['REGULIERS_2']
-            print(f'\n\nVerbos disponíveis - Regulares do 2° grupo / De terminação IR:\n\n{verbos_regulares_2}')
-        
-    elif verbo_reg_ou_irreg == 2:
-        Tipo_De_Verbo_Escolhido += ['IRREGULIERS']
-        print(f'\n\nVerbos disponíveis - Irregulares:\n\n{verbos_irregulares}')
-
-
-    Verbos_Disponiveis = list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys())
+    verbos_regulares_2 = list(Gabarito['REGULIERS_2'].keys())
 
 
 
-    quantos_verbos = int(input(f'\nIndique a quantidade de verbos a serem conjugados: '))
+    print('\n\nCONJUGAISON DES VERBES EN FRAÇAIS!\n')
 
-    for u in range (quantos_verbos):
-        verbos_user = unidecode(input(f'\nDigite o verbo {u+1}: ').upper())
-        while verbos_user not in Verbos_Disponiveis:
-            print('\n\n\nENTRADA INVÁLIDA. Ocorreu um erro de grafia ou o verbo escolhido ainda não se encontra em nosso banco de dados. \nFavor consultar os verbos disponíveis abaixo e tentar novamente.')
+    Conjugação_Ou_Gabarito = int(input('\nTecle 1 para conjugar verbos ou 2 para acessar o gabarito de conjugação de algum verbo: '))
 
-            if verbo_reg_ou_irreg == 1:
-                if regulares == 1:
-                    print(f'\n\nVerbos disponíveis - Regulares do 1° grupo / De terminação ER:\n\n{verbos_regulares_1}')
-
-                elif regulares == 2:
-                    print(f'\n\nVerbos disponíveis - Regulares do 2° grupo / De terminação IR:\n\n{verbos_regulares_2}')
-        
-            elif verbo_reg_ou_irreg == 2:
-                print(f'\n\nVerbos disponíveis - Irregulares:\n\n{verbos_irregulares}')
-
-            verbos_user = unidecode(input(f'\nDigite o verbo {u+1}: ').upper())
-        else:
-            checar_verbos.append(verbos_user)
-
-
-
-    tempos_verbais_backend = ['PRESENT', 'PASSE COMPOSE', 'IMPARFAIT', 'PLUS-QUE-PARFAIT', 'FUTUR SIMPLE']
-    
-    tempos_verbais_input = ['Présent', 'Passé composé', 'Imparfait', 'Plus-Que-Parfait', 'Futur simple']
-
-    print(f'\n\nTempos verbais disponíveis:\n\n{tempos_verbais_input}')
-
-    quantos_tempos = int(input(f'\nIndique a quantidade de tempos verbais: '))
-
-    for i in range (quantos_tempos):
-        tempos_user = unidecode(input(f'\nDigite o tempo verbal {i+1}: ').upper())
-        while tempos_user not in tempos_verbais_backend:
-            print('\n\nENTRADA INVÁLIDA. Ocorreu um erro de grafia. Tente novamente.\n')
-            tempos_user = unidecode(input(f'\nDigite o tempo verbal {i+1}: ').upper())
-        else:    
-            checar_tempos.append(tempos_user)
-
-
-    # Printando o nome do verbo escolhido pelo usuário
-    for l in checar_verbos:
-        print(f'\n\n{unidecode(l)}:')
-
-    # Printando o nome do tempo verbal escolhido pelo usuário
-        for j in checar_tempos:
-            print(f'\n{unidecode(j)}')
-        
-            Je = input(f'\nJe:            ').lower()
-            checar_respostas.append(Je)
-       
-            Tu = input(f'Tu:            ').lower()
-            checar_respostas.append(Tu)
-        
-            Il_Elle_On = input(f'Il/Elle/On:    ').lower()
-            checar_respostas.append(Il_Elle_On)
+    if Conjugação_Ou_Gabarito == 1:
             
-            Nous = input(f'Nous:          ').lower()
-            checar_respostas.append(Nous)
-            
-            Vous = input(f'Vous:          ').lower()
-            checar_respostas.append(Vous)
-            
-            Ils_Elles = input(f'Ils/Elles:     ').lower()
-            checar_respostas.append(Ils_Elles)
 
-    print('\n')
+        Tipo_De_Verbo_Escolhido = []
 
-    # For loop para gerar uma lista com o gabarito personalizado dos inputs do usuário
-    for m in checar_verbos:
-        for k in checar_tempos:
-            for s in pronomes_lista:
-                Respostas_Corretas.append(Gabarito[Tipo_De_Verbo_Escolhido[0]][m][k][s])
+
+        verbo_reg_ou_irreg = int(input('\nTecle 1 para conjugar verbos regulares ou 2 para verbos irregulares: '))
+
+        if verbo_reg_ou_irreg == 1:
+            regulares = int(input('\nTecle 1 para verbos do grupo I (-ER) ou 2 (-IR) para verbos do segundo grupo II: '))
+            if regulares == 1:
+                Tipo_De_Verbo_Escolhido += ['REGULIERS_1']
+                print(f'\n\nVerbos disponíveis - Regulares do 1° grupo / De terminação ER:\n\n{verbos_regulares_1}')
+
+            elif regulares == 2:
+                Tipo_De_Verbo_Escolhido += ['REGULIERS_2']
+                print(f'\n\nVerbos disponíveis - Regulares do 2° grupo / De terminação IR:\n\n{verbos_regulares_2}')
+            
+        elif verbo_reg_ou_irreg == 2:
+            Tipo_De_Verbo_Escolhido += ['IRREGULIERS']
+            print(f'\n\nVerbos disponíveis - Irregulares:\n\n{verbos_irregulares}')
+
+
+        Verbos_Disponiveis = list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys())
+
+
+        quantos_verbos = int(input(f'\nIndique a quantidade de verbos a serem conjugados: '))
+
+        for u in range (quantos_verbos):
+            verbos_user = input(f'\nDigite o verbo {u+1}: ').upper()
+            while verbos_user not in Verbos_Disponiveis:
+                print('\n\nENTRADA INVÁLIDA. Tente novamente.\n')
+                verbos_user = input(f'\nDigite o verbo {u+1}: ').upper()
                 
-
-    # For loop para printar 'certo' ou 'errado' para cada resposta do usuário
-    for g in range(len(checar_respostas)):
-        if checar_respostas[g] == Respostas_Corretas[g]:
-            Correção.append('Resposta correta!')
-        else:
-            Correção.append('Resposta errada :(')
+            else:
+                checar_verbos.append(verbos_user)
 
 
-    # Fiz isso porque eu esvazio a lista 'checar_respostas' no próximo código,
-    # e eu preciso dela para comparar com 'Respostas Corretas no final do programa
-    # para printar uma mensagem no caso de o usuário ter gabaritado
-    checar_respostas2 = checar_respostas
 
-    # Criado para a subsequente formatação dos resultados
-    limite = 12
+        Tempos_Verbais_Disponíveis = list(Gabarito[Tipo_De_Verbo_Escolhido[0]][checar_verbos[0]].keys())
 
-    # For loop para printar correção formatada
-    for m in checar_verbos:
-        print(f'\n{m}:')
-        for k in checar_tempos:
-            print(f'\n{k}\n')
-            for(a, b, c) in zip(pronomes_lista, checar_respostas, Correção):
-                print(f'{a}: {(limite - len(a)) * " "} {b} {(limite - len(b)) * " "} --> {c}')
-            checar_respostas = checar_respostas[6:]
-            Correção = Correção[6:]
+        print(f'\n\nTempos verbais disponíveis:\n\n{Tempos_Verbais_Disponíveis}')
 
-    if checar_respostas2 == Respostas_Corretas:
-        print('\nPARABÉNS! VOCÊ GABARITOU!')
-        
+        quantos_tempos = int(input(f'\nIndique a quantidade de tempos verbais: '))
+
+        for i in range (quantos_tempos):
+            tempos_user = input(f'\nDigite o tempo verbal {i+1}: ').upper()
+            while tempos_user not in Tempos_Verbais_Disponíveis:
+                print('\n\nENTRADA INVÁLIDA. Tente novamente.\n')
+                tempos_user = input(f'\nDigite o tempo verbal {i+1}: ').upper()
+            else:    
+                checar_tempos.append(tempos_user)
 
 
-    restart = input(f'\nTecle "r" para reiniciar o programa, "g" para acessar o gabarito e reiniciar o programa, ou "e" para encerrar a aplicação: ').lower()
-    if restart == "r":
-        main()
+        # Printando o nome do verbo escolhido pelo usuário
+        for l in checar_verbos:
+            print(f'\n\n{l}:')
 
-    elif restart == "g":
+        # Printando o nome do tempo verbal escolhido pelo usuário
+            for j in checar_tempos:
+                print(f'\n{j}')
+            
+                Je = input(f'\nJe:            ').lower()
+                checar_respostas.append(Je)
+           
+                Tu = input(f'Tu:            ').lower()
+                checar_respostas.append(Tu)
+            
+                Il_Elle_On = input(f'Il/Elle/On:    ').lower()
+                checar_respostas.append(Il_Elle_On)
+                
+                Nous = input(f'Nous:          ').lower()
+                checar_respostas.append(Nous)
+                
+                Vous = input(f'Vous:          ').lower()
+                checar_respostas.append(Vous)
+                
+                Ils_Elles = input(f'Ils/Elles:     ').lower()
+                checar_respostas.append(Ils_Elles)
+
         print('\n')
-        print('\n')
-        print('GABARITO -->')
+
+        # For loop para gerar uma lista com o gabarito personalizado dos inputs do usuário
+        for m in checar_verbos:
+            for k in checar_tempos:
+                for s in pronomes_lista:
+                    Respostas_Corretas.append(Gabarito[Tipo_De_Verbo_Escolhido[0]][m][k][s])
+                    
+
+        # For loop para printar 'certo' ou 'errado' para cada resposta do usuário
+        for g in range(len(checar_respostas)):
+            if checar_respostas[g] == Respostas_Corretas[g]:
+                Correção.append('Resposta correta!')
+            else:
+                Correção.append('Resposta errada :(')
+
+
+        # Fiz isso porque eu esvazio a lista 'checar_respostas' no próximo código,
+        # e eu preciso dela para comparar com 'Respostas Corretas no final do programa
+        # para printar uma mensagem no caso de o usuário ter gabaritado
+        checar_respostas2 = checar_respostas
+
+        # Criado para a subsequente formatação dos resultados
+        limite = 12
+
+        # For loop para printar correção formatada
         for m in checar_verbos:
             print(f'\n{m}:')
             for k in checar_tempos:
                 print(f'\n{k}\n')
-                for(a, b) in zip(pronomes_lista, Respostas_Corretas):
-                    print(f'{a}: {(limite - len(a)) * " "} {b}')
-                Respostas_Corretas = Respostas_Corretas[6:]
-        print('\n')
-        print('\n')
-                
-        main()
+                for(a, b, c) in zip(pronomes_lista, checar_respostas, Correção):
+                    print(f'{a}: {(limite - len(a)) * " "} {b} {(limite - len(b)) * " "} --> {c}')
+                checar_respostas = checar_respostas[6:]
+                Correção = Correção[6:]
 
-    else:
-        exit()
+        if checar_respostas2 == Respostas_Corretas:
+            print('\nPARABÉNS! VOCÊ GABARITOU!')
+            
+
+
+        restart = input(f'\nTecle "r" para reiniciar o programa, "g" para acessar o gabarito e reiniciar o programa, ou "e" para encerrar a aplicação: ').lower()
+        if restart == "r":
+            main()
+
+        elif restart == "g":
+            print('\n')
+            print('\n')
+            print('GABARITO -->')
+            for m in checar_verbos:
+                print(f'\n{m}:')
+                for k in checar_tempos:
+                    print(f'\n{k}\n')
+                    for(a, b) in zip(pronomes_lista, Respostas_Corretas):
+                        print(f'{a}: {(limite - len(a)) * " "} {b}')
+                    Respostas_Corretas = Respostas_Corretas[6:]
+            print('\n')
+                    
+            main()
+
+        else:
+            exit()
+
+
+    elif Conjugação_Ou_Gabarito == 2:
+
+        print(f'\n\nVerbos regulares do tipo I:\n{list(Gabarito["REGULIERS_1"].keys())}\n')
+        print(f'\nVerbos regulares do tipo II:\n{list(Gabarito["REGULIERS_2"].keys())}\n')
+        print(f'\nVerbos irregulares:\n{list(Gabarito["IRREGULIERS"].keys())}')
+
+        Tipo_De_Verbo_Consulta = int(input('\n\nDigite 1 para consultar um verbo regular do tipo I, 2 para verbo regular do tipo II, e 3 para verbo irregular: '))
+
+        Tipo_De_Verbo_User = []
+        Verbo_User = []
+
+        if Tipo_De_Verbo_Consulta == 1:
+            Tipo_De_Verbo_User.append('REGULIERS_1')
+            R_1 = input('\nDigite o verbo regular do tipo I que deseja consultar: ').upper()
+            
+            while R_1 not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+                R_1 = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
+            else:  
+                Verbo_User.append(R_1)
+
+            
+        elif Tipo_De_Verbo_Consulta == 2:
+            Tipo_De_Verbo_User.append('REGULIERS_2')
+            R_2 = input('\nDigite o verbo regular do tipo II que deseja consultar: ').upper()
+            
+            while R_2 not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+                R_2 = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
+            else:
+                Verbo_User.append(R_2)
+                
+
+        elif Tipo_De_Verbo_Consulta == 3:
+            Tipo_De_Verbo_User.append('IRREGULIERS')
+            I = input('\nDigite o verbo irregular que deseja consultar: ').upper()
+
+            while I not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+                I = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
+            else:
+                Verbo_User.append(I)
+                
+
+        Tempos_Verbais = list(Gabarito[Tipo_De_Verbo_User[0]][Verbo_User[0]].keys())
+
+        limite = 15
+        
+        print(f'\n\nGABARITO DO VERBO {Verbo_User[0]} -->')
+        for i in Tempos_Verbais:
+            print(f'\n{i}\n')
+            for j in pronomes_lista:
+                print(f'{j}: {(limite - len(j)) * " "} {Gabarito[Tipo_De_Verbo_User[0]][Verbo_User[0]][i][j]}')
+
+        main()
 
 
 main()
