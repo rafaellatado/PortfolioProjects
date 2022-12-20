@@ -34,15 +34,15 @@ def main():
 
         if tipo_de_verbo == '1':
             Tipo_De_Verbo_Escolhido += ['REGULIERS_1']
-            print(f'\n\nVerbos REGULARES DO TIPO I já presentes em nosso database:\n\n{list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys())}\n')            
+            print(f'\n\nVerbos REGULARES DO TIPO I já presentes em nosso database:\n\n{sorted(list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()))}\n')            
 
         elif tipo_de_verbo == '2':
             Tipo_De_Verbo_Escolhido += ['REGULIERS_2']
-            print(f'\n\nVerbos REGULARES DO TIPO II já presentes em nosso database:\n\n{list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys())}\n')
+            print(f'\n\nVerbos REGULARES DO TIPO II já presentes em nosso database:\n\n{sorted(list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()))}\n')
 
         elif tipo_de_verbo == '3':
             Tipo_De_Verbo_Escolhido += ['IRREGULIERS']
-            print(f'\n\nVerbos IRREGULARES já presentes em nosso database:\n\n{list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys())}\n')
+            print(f'\n\nVerbos IRREGULARES já presentes em nosso database:\n\n{sorted(list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()))}\n')
             
 
 
@@ -74,22 +74,22 @@ def main():
         for i in Tempos_Verbais_Disponíveis:
             print(f'\n{i}: ')
             
-            Je = input(f'\nJe:            ').lower()
+            Je = input(f'\nJe:               ').lower()
             Respostas.append(Je)
        
-            Tu = input(f'Tu:            ').lower()
+            Tu = input(f'Tu:               ').lower()
             Respostas.append(Tu)
         
-            Il_Elle_On = input(f'Il/Elle/On:    ').lower()
+            Il_Elle_On = input(f'Il/Elle/On:       ').lower()
             Respostas.append(Il_Elle_On)
             
-            Nous = input(f'Nous:          ').lower()
+            Nous = input(f'Nous:             ').lower()
             Respostas.append(Nous)
             
-            Vous = input(f'Vous:          ').lower()
+            Vous = input(f'Vous:             ').lower()
             Respostas.append(Vous)
             
-            Ils_Elles = input(f'Ils/Elles:     ').lower()
+            Ils_Elles = input(f'Ils/Elles:        ').lower()
             Respostas.append(Ils_Elles)
             
 
@@ -117,54 +117,54 @@ def main():
 
     elif Gabarito_Ou_Adicionar == 2:
         
-        print(f'\n\nVerbos regulares do tipo I:\n{list(Gabarito["REGULIERS_1"].keys())}\n')
-        print(f'\nVerbos regulares do tipo II:\n{list(Gabarito["REGULIERS_2"].keys())}\n')
-        print(f'\nVerbos irregulares:\n{list(Gabarito["IRREGULIERS"].keys())}')
+        print(f'\n\nVerbos regulares do tipo I:\n{sorted(list(Gabarito["REGULIERS_1"].keys()))}\n')
+        print(f'\nVerbos regulares do tipo II:\n{sorted(list(Gabarito["REGULIERS_2"].keys()))}\n')
+        print(f'\nVerbos irregulares:\n{sorted(list(Gabarito["IRREGULIERS"].keys()))}')
 
-        Tipo_De_Verbo_Consulta = int(input('\n\nDigite 1 para consultar um verbo regular do tipo I, 2 para verbo regular do tipo II, e 3 para verbo irregular: '))
+        tipo_de_verbo = int(input('\n\nDigite 1 para consultar um verbo regular do tipo I, 2 para verbo regular do tipo II, e 3 para verbo irregular: '))
 
-        Tipo_De_Verbo_User = []
+        Tipo_De_Verbo_Escolhido = []
         Verbo_User = []
 
-        if Tipo_De_Verbo_Consulta == 1:
-            Tipo_De_Verbo_User.append('REGULIERS_1')
+        if tipo_de_verbo == 1:
+            Tipo_De_Verbo_Escolhido.append('REGULIERS_1')
             R_1 = input('\nDigite o verbo regular do tipo I que deseja consultar: ').upper()
             
-            while R_1 not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+            while R_1 not in list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()):
                 R_1 = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
             else:  
                 Verbo_User.append(R_1)
 
             
-        elif Tipo_De_Verbo_Consulta == 2:
-            Tipo_De_Verbo_User.append('REGULIERS_2')
+        elif tipo_de_verbo == 2:
+            Tipo_De_Verbo_Escolhido.append('REGULIERS_2')
             R_2 = input('\nDigite o verbo regular do tipo II que deseja consultar: ').upper()
             
-            while R_2 not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+            while R_2 not in list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()):
                 R_2 = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
             else:
                 Verbo_User.append(R_2)
                 
 
-        elif Tipo_De_Verbo_Consulta == 3:
-            Tipo_De_Verbo_User.append('IRREGULIERS')
+        elif tipo_de_verbo == 3:
+            Tipo_De_Verbo_Escolhido.append('IRREGULIERS')
             I = input('\nDigite o verbo irregular que deseja consultar: ').upper()
 
-            while I not in list(Gabarito[Tipo_De_Verbo_User[0]].keys()):
+            while I not in list(Gabarito[Tipo_De_Verbo_Escolhido[0]].keys()):
                 I = input('\nEntrada inválida. Digite o verbo novamente: ').upper()
             else:
                 Verbo_User.append(I)
                 
 
-        Tempos_Verbais = list(Gabarito[Tipo_De_Verbo_User[0]][Verbo_User[0]].keys())
+        Tempos_Verbais_Disponíveis = list(Gabarito['IRREGULIERS']['ÊTRE'].keys())
 
         limite = 15
         
         print(f'\n\nGABARITO DO VERBO {Verbo_User[0]} -->')
-        for i in Tempos_Verbais:
+        for i in Tempos_Verbais_Disponíveis:
             print(f'\n{i}\n')
             for j in pronomes_lista:
-                print(f'{j}: {(limite - len(j)) * " "} {Gabarito[Tipo_De_Verbo_User[0]][Verbo_User[0]][i][j]}')
+                print(f'{j}: {(limite - len(j)) * " "} {Gabarito[Tipo_De_Verbo_Escolhido[0]][Verbo_User[0]][i][j]}')
                 
         
         reinicia = int(input('\n\nTecle 1 para modificar o gabarito ou 2 para reiniciar o programa: '))
@@ -174,7 +174,7 @@ def main():
             
             dic_verbo_novo[Verbo_User[0]] = dic_verbo_novo.pop('TROCA_VERBO')
 
-            Tempos_Verbais_Disponíveis = list(Gabarito['IRREGULIERS']['ÊTRE'].keys())
+
 
             Respostas = []
 
@@ -184,22 +184,22 @@ def main():
             for i in Tempos_Verbais_Disponíveis:
                 print(f'\n{i}: ')
                 
-                Je = input(f'\nJe:            ').lower()
+                Je = input(f'\nJe:               ').lower()
                 Respostas.append(Je)
            
-                Tu = input(f'Tu:            ').lower()
+                Tu = input(f'Tu:               ').lower()
                 Respostas.append(Tu)
             
-                Il_Elle_On = input(f'Il/Elle/On:    ').lower()
+                Il_Elle_On = input(f'Il/Elle/On:       ').lower()
                 Respostas.append(Il_Elle_On)
                 
-                Nous = input(f'Nous:          ').lower()
+                Nous = input(f'Nous:             ').lower()
                 Respostas.append(Nous)
                 
-                Vous = input(f'Vous:          ').lower()
+                Vous = input(f'Vous:             ').lower()
                 Respostas.append(Vous)
                 
-                Ils_Elles = input(f'Ils/Elles:     ').lower()
+                Ils_Elles = input(f'Ils/Elles:        ').lower()
                 Respostas.append(Ils_Elles)
                 
 
@@ -215,7 +215,7 @@ def main():
             restart = input('\n\nRevise sua conjugação. Se estiver correta tecle 1, caso contrário tecle 2 e reiniciaremos o programa: ')
 
             if restart == '1':
-                Gabarito[Tipo_De_Verbo_User[0]].update(dic_verbo_novo)
+                Gabarito[Tipo_De_Verbo_Escolhido[0]].update(dic_verbo_novo)
                 with open('Gabarito_txt_Francês.txt', 'w') as f:
                     f.write(str(Gabarito))
                 print(f'\nGabarito do verbo {Verbo_User[0]} atualizado com sucesso :)')
@@ -229,3 +229,44 @@ def main():
             
         
 main()
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+   
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
