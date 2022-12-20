@@ -58,7 +58,6 @@ def main():
         while verbo in All_Verbs:
             verbo = input('\nEste verbo já se encontra em nosso databse. Escolha outro verbo: ').upper()
 
-        # A atualização de gabarito poderia voltar aqui
         else:
             dic_verbo_novo[verbo] = dic_verbo_novo.pop('TROCA_VERBO')
 
