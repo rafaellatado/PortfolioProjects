@@ -9,7 +9,12 @@ def main():
         
     # Converte string em dicionário. A string está na formatação exata de dicionário
     Gabarito = ast.literal_eval(g)
+    
 
+    with open('Tradutor_txt_Francês.txt', 'r') as t:
+        tt = t.read()     
+    Tradutor = ast.literal_eval(tt)
+    
 
     pronomes_lista = ['Je', 'Tu', 'Il/Elle/On', 'Nous', 'Vous', 'Ils/Elles']
 
@@ -20,6 +25,8 @@ def main():
                              'IMPARFAIT': {'Je': "'étais", 'Tu': 'étais', 'Il/Elle/On': 'était', 'Nous': 'étions', 'Vous': 'étiez', 'Ils/Elles': 'étaient'},
                              'PLUS-QUE-PARFAIT': {'Je': "'avais été", 'Tu': 'avais été', 'Il/Elle/On': 'avait été', 'Nous': 'avions été', 'Vous': 'aviez été', 'Ils/Elles': 'avaient été'},
                              'FUTUR SIMPLE': {'Je': 'serai', 'Tu': 'seras', 'Il/Elle/On': 'sera', 'Nous': 'serons', 'Vous': 'serez', 'Ils/Elles': 'seront'}}}
+
+    dic_tradutor_novo = {'TROCA_VERBO': 'Ir'}
     
 
     print('\n\nADICIONE NOVOS VERBOS AO DATABASE DE FRANCÊS!\n')
@@ -48,6 +55,7 @@ def main():
 
         verbo = input('\nDigite o verbo a ser adicionado: ').upper()
 
+        verbo_novo_list = []
             
         Verbes_Reguliers_1 = list(Gabarito['REGULIERS_1'].keys())
         Verbes_Reguliers_2 = list(Gabarito['REGULIERS_2'].keys())
@@ -60,6 +68,18 @@ def main():
 
         else:
             dic_verbo_novo[verbo] = dic_verbo_novo.pop('TROCA_VERBO')
+            verbo_novo_list.append(verbo)
+
+
+    
+
+        tradução = input('\nDigite a tradução do verbo em portugês: ').upper()
+
+        dic_tradutor_novo[verbo_novo_list[0]] = dic_tradutor_novo.pop('TROCA_VERBO')
+
+        dic_tradutor_novo[verbo_novo_list[0]] = tradução
+
+        Tradutor[Tipo_De_Verbo_Escolhido[0]].update(dic_tradutor_novo)
 
 
 
@@ -67,7 +87,7 @@ def main():
 
         Respostas = []
 
-        print(f'\n\n{verbo}')
+        print(f'\n\n{verbo} / {Tradutor[Tipo_De_Verbo_Escolhido[0]][verbo_novo_list[0]]}')
 
         # Printando na tela do usuário
         for i in Tempos_Verbais_Disponíveis:
@@ -107,6 +127,10 @@ def main():
             Gabarito[Tipo_De_Verbo_Escolhido[0]].update(dic_verbo_novo)
             with open('Gabarito_txt_Francês.txt', 'w') as f:
                 f.write(str(Gabarito))
+
+            with open('Tradutor_txt_Francês.txt', 'w') as t:
+                t.write(str(Tradutor))
+            
             print(f'\nVerbo {verbo} adicionado com sucesso :)')
             main()
         else:
@@ -159,7 +183,7 @@ def main():
 
         limite = 15
         
-        print(f'\n\nGABARITO DO VERBO {Verbo_User[0]} -->')
+        print(f'\n\nGABARITO DO VERBO {Verbo_User[0]} / {Tradutor[Tipo_De_Verbo_Escolhido[0]][Verbo_User[0]]} -->')
         for i in Tempos_Verbais_Disponíveis:
             print(f'\n{i}\n')
             for j in pronomes_lista:
@@ -174,10 +198,21 @@ def main():
             dic_verbo_novo[Verbo_User[0]] = dic_verbo_novo.pop('TROCA_VERBO')
 
 
+  
+
+            tradução = input('\nDigite a tradução do verbo em portugês: ').upper()
+
+            dic_tradutor_novo[Verbo_User[0]] = dic_tradutor_novo.pop('TROCA_VERBO')
+
+            dic_tradutor_novo[Verbo_User[0]] = tradução
+
+            Tradutor[Tipo_De_Verbo_Escolhido[0]].update(dic_tradutor_novo)
+
+                
 
             Respostas = []
 
-            print(f'\n\n{Verbo_User[0]}')
+            print(f'\n\n{Verbo_User[0]} / {Tradutor[Tipo_De_Verbo_Escolhido[0]][Verbo_User[0]]}')
 
             # Printando na tela do usuário
             for i in Tempos_Verbais_Disponíveis:
@@ -217,6 +252,10 @@ def main():
                 Gabarito[Tipo_De_Verbo_Escolhido[0]].update(dic_verbo_novo)
                 with open('Gabarito_txt_Francês.txt', 'w') as f:
                     f.write(str(Gabarito))
+
+                with open('Tradutor_txt_Francês.txt', 'w') as t:
+                    t.write(str(Tradutor))
+                
                 print(f'\nGabarito do verbo {Verbo_User[0]} atualizado com sucesso :)')
                 main()
             else:
@@ -228,6 +267,26 @@ def main():
             
         
 main()
+
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                             
+
+
+
+
+
+
+
+
+
+
+
+        
+
 
 
 
